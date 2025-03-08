@@ -21,7 +21,7 @@ public class Patient {
 	private String pname;
 	@Column(name ="Age")
 	private String page;
-	@Column(name ="Blood")
+	@Column(name ="Blood_group")
 	private String pblood;
 	@Column(name ="Prescription")
 	private String prescription;
