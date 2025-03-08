@@ -1,5 +1,6 @@
 package com.hms.doclogin.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,14 +17,15 @@ public class Appointment {
 	private long id;
 	private String name;
 	private String age;
-    private String Symptomps;
+	@Column(name ="symptoms" )
+    private String symptoms;
     private String number;
-	public Appointment(long id, String name, String age, String symptomps, String number) {
+	public Appointment(long id, String name, String age, String symptoms, String number) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.age = age;
-		Symptomps = symptomps;
+		this.symptoms = symptoms;
 		this.number = number;
 	}
 	public Appointment() {
@@ -49,11 +51,11 @@ public class Appointment {
 	public void setAge(String age) {
 		this.age = age;
 	}
-	public String getSymptomps() {
-		return Symptomps;
+	public String getSymptoms() {
+		return symptoms;
 	}
-	public void setSymptomps(String symptomps) {
-		Symptomps = symptomps;
+	public void setSymptoms(String symptoms) {
+		this.symptoms = symptoms;
 	}
 	public String getNumber() {
 		return number;
