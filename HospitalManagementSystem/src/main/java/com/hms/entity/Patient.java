@@ -10,10 +10,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "patients")
 public class Patient {
-
-	
-
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long pid;
@@ -134,5 +130,7 @@ public class Patient {
 		return "Patient [pid=" + pid + ", pname=" + pname + ", page=" + page + ", pblood=" + pblood + ", prescription="
 				+ prescription + ", pdose=" + pdose + ", pfees=" + pfees + ", purgency=" + purgency + "]";
 	}
+
+	
 	
 }

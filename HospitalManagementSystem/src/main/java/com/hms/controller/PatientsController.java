@@ -1,6 +1,9 @@
 package com.hms.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +22,16 @@ public class PatientsController implements PatientService {
 
 	@Override
 	@PostMapping("/add")
-	public Patient createPatient(@RequestBody Patient patient) {
-		
+	public Patient createPatient(@RequestBody Patient patient) {	
 		return patientRepository.save(patient);
-	
 	}
+
+	@Override
+	@GetMapping("/getAll")
+	public List<Patient> getAllPatient(){
+		return patientRepository.findAll();		
+	}
+
+	
 
 }
