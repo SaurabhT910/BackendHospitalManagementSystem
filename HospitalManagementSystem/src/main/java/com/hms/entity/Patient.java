@@ -55,8 +55,6 @@ public class Patient {
 	public void setPid(long pid) {
 		this.pid = pid;
 	}
-
-	
 	public String getPname() {
 		return pname;
 	}
