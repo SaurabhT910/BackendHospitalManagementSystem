@@ -26,14 +26,14 @@ import com.hms.service.AppointmentService;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v2/appointment")
-public class AppointmentController implements AppointmentService {
+public  class AppointmentController implements AppointmentService {
 
 	@Autowired
 	private AppoinmentRepository appoinmentRepository;
 
 	@Override
 	@PostMapping("/insert")
-	public Appointment createAppoinment(@RequestBody Appointment appointment) {
+    public Appointment createAppoinment(@RequestBody Appointment appointment) {
 
 		return appoinmentRepository.save(appointment);
 	}
@@ -56,6 +56,8 @@ public class AppointmentController implements AppointmentService {
 		return ResponseEntity.ok(response);
 	}
 
+	
+
 	@Override
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Map<String, Long>> updateById(@PathVariable long id, @RequestBody Appointment updateAppointment)
@@ -73,4 +75,7 @@ public class AppointmentController implements AppointmentService {
 		return ResponseEntity.ok(response);
 	}
 
+	
+
+	
 }

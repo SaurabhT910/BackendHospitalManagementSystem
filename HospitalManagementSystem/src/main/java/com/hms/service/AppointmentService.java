@@ -15,10 +15,10 @@ import com.hms.doclogin.entity.Appointment;
 @Service
 public interface AppointmentService {
 
-	public Appointment createAppoinment(Appointment appointment);
-	public List<Appointment> getAllAppointment();
-	public ResponseEntity<Map<String, Boolean>> deleteById(long id) throws AttributeNotFoundException;
-	public ResponseEntity<Map<String,Long>> updateById(long id) throws AttributeNotFoundException;
-	ResponseEntity<Map<String, Long>> updateById(long id, Appointment updateAppointment) throws AttributeNotFoundException;
+	 Appointment createAppoinment(Appointment appointment);
+	 List<Appointment> getAllAppointment();
+	 ResponseEntity<Map<String, Boolean>> deleteById(long id) throws AttributeNotFoundException;
+	 ResponseEntity<Map<String, Long>> updateById(long id, Appointment updateAppointment)
+			throws AttributeNotFoundException;
 	
 }
