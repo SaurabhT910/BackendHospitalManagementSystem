@@ -10,8 +10,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "appointment")
 public class Appointment {
-
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
