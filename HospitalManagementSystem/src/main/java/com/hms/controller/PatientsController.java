@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -58,6 +59,27 @@ public class PatientsController implements PatientService {
 		Patient patients = patientRepository.findById(pid)
 				.orElseThrow(() -> new AttributeNotFoundException("Patient Not Found In database"+pid));
 		return patients;
+	}
+	
+	@Override
+	@PutMapping("/update/{pid}")
+	public ResponseEntity<Map<String, Long>> UpdateById(@PathVariable long pid,@RequestBody Patient upadatePatient) throws AttributeNotFoundException {
+		Patient patients=patientRepository.findById(pid)
+				.orElseThrow(()-> new AttributeNotFoundException("Patient not found in database"+pid));
+		
+		patients.setPname(upadatePatient.getPname());
+		patients.setPage(upadatePatient.getPage());
+		patients.setPblood(upadatePatient.getPblood());
+		patients.setPfees(upadatePatient.getPfees());
+		patients.setPrescription(upadatePatient.getPrescription());
+		patients.setPurgency(upadatePatient.getPurgency());
+	    patients.setPdose(upadatePatient.getPdose());
+	    patientRepository.save(patients);
+		Map<String,Long> responce=new HashMap<String, Long>();
+		responce.put("Updated Successfully",pid);
+		
+		
+		return ResponseEntity.ok(responce);
 	}
 
 	

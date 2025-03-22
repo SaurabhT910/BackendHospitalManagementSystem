@@ -17,6 +17,7 @@ public interface PatientService {
 	List<Patient> getAllPatient();
 	ResponseEntity< Map<String,Boolean>> deleteById(long pid) throws AttributeNotFoundException;
 	Patient getPatientById(long pid) throws AttributeNotFoundException;
+	ResponseEntity<Map<String, Long>> UpdateById(long pid, Patient upadatePatient) throws AttributeNotFoundException;
 	
 	
 	
