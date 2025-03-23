@@ -20,5 +20,5 @@ public interface AppointmentService {
 	 ResponseEntity<Map<String, Boolean>> deleteById(long id) throws AttributeNotFoundException;
 	 ResponseEntity<Map<String, Long>> updateById(long id, Appointment updateAppointment)
 			throws AttributeNotFoundException;
-	
+	 Appointment getAppointmentNyId(long id) throws AttributeNotFoundException;	
 }

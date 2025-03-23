@@ -8,7 +8,6 @@ import javax.management.AttributeNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -73,6 +72,14 @@ public  class AppointmentController implements AppointmentService {
 		appoinmentRepository.save(appointment);
 		response.put("Updated", id);
 		return ResponseEntity.ok(response);
+	}
+
+	@GetMapping("/{id}")
+	@Override
+	public Appointment getAppointmentNyId(@PathVariable long id) throws AttributeNotFoundException {
+		Appointment appointment=appoinmentRepository.findById(id)
+				.orElseThrow(()->new AttributeNotFoundException("Appoinment is not found"+id));
+		return appointment;
 	}
 
 	

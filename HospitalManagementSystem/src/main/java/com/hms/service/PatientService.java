@@ -14,9 +14,9 @@ import com.hms.entity.Patient;
 public interface PatientService {
    
 	Patient createPatient(Patient patient);
-	List<Patient> getAllPatient();
-	ResponseEntity< Map<String,Boolean>> deleteById(long pid) throws AttributeNotFoundException;
+	List<Patient> getAllPatient();	
 	Patient getPatientById(long pid) throws AttributeNotFoundException;
+	ResponseEntity< Map<String,Boolean>> deleteById(long pid) throws AttributeNotFoundException;
 	ResponseEntity<Map<String, Long>> UpdateById(long pid, Patient upadatePatient) throws AttributeNotFoundException;
 	
 	
